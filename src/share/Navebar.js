@@ -19,6 +19,7 @@ const Navebar = () => {
               
             </li>
             <li><Link>Top-post</Link></li>
+            <li><Link to='/login'>Login</Link></li>
             <li><Link>About</Link></li>
             
           </ul>
