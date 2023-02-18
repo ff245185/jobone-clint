@@ -1,14 +1,30 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { AuthContext,
-    createUserWithEmailAndPass, 
-     logInWithEmailAndPassword } from "../authprovider/Authprovider"
+import {AuthContext} from '../authprovider/Authprovider'
+
 const Sining = () => {
 
 
 
-    const {  createUserWithEmailAndPass,  logInWithEmailAndPassword,
-    } = useContext(AuthContext);
+
+
+ const {createUserEmail}= useContext(AuthContext)
+
+
+  
+    const handleCreateAccount = event =>{
+        event.preventDefault();
+        const form = event.target;
+        const name = form.name.value;
+        const email = form.email.value;
+        const password = form.password.value;
+        
+        createUserEmail(email,password)
+          .then(result =>{
+            const user = result.user;
+            console.log(user);
+          })
+    }
 
 
     return (
@@ -19,7 +35,7 @@ const Sining = () => {
                     <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
                 </div>
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                    <form className="card-body">
+                    <form onSubmit={handleCreateAccount} className="card-body">
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Make your account</span>
