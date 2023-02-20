@@ -2,10 +2,11 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../authprovider/Authprovider';
 import {FcGoogle} from 'react-icons/fc'
+import { GoogleAuthProvider } from 'firebase/auth';
 const Login = () => {
 
 
-const {logInWithEmailAndPassword} = useContext(AuthContext);
+const {logInWithEmailAndPassword,continewWithGoogle} = useContext(AuthContext);
 
 const handleLogin = event =>{
     event.preventDefault();
@@ -16,6 +17,25 @@ const handleLogin = event =>{
     .then(result => {
         const user = result.user;
         console.log(user)
+    })
+}
+
+
+// const googleProvider = new GoogleAuthProvider();
+// 	const continueWithGoogle = () => {
+// 		providerLogin(googleProvider)
+// 			.then(result => {
+// 				const user = result.user;
+// 				console.log(user);
+// 				navigate(from, { replace: true });
+// 			})
+
+const googleLogin = new GoogleAuthProvider();
+const loginProvider = () =>{
+    continewWithGoogle(googleLogin)
+    .then(result=>{
+        const user = result.user;
+        console.log(user);
     })
 }
 
@@ -53,7 +73,7 @@ const handleLogin = event =>{
                         <div className="form-control mt-6">
                             <button className="btn btn-primary">Login</button>
                         </div>
-                        <button className="btn mt-6"><FcGoogle/>Google</button>
+                        <button onClick={loginProvider} className="btn mt-6"><FcGoogle/>Google</button>
                     </form>
                 </div>
             </div>
