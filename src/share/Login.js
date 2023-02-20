@@ -21,18 +21,11 @@ const handleLogin = event =>{
 }
 
 
-// const googleProvider = new GoogleAuthProvider();
-// 	const continueWithGoogle = () => {
-// 		providerLogin(googleProvider)
-// 			.then(result => {
-// 				const user = result.user;
-// 				console.log(user);
-// 				navigate(from, { replace: true });
-// 			})
 
-const googleLogin = new GoogleAuthProvider();
+
+const googleProvider = new GoogleAuthProvider();
 const loginProvider = () =>{
-    continewWithGoogle(googleLogin)
+    continewWithGoogle(googleProvider)
     .then(result=>{
         const user = result.user;
         console.log(user);

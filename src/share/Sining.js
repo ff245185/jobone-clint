@@ -2,13 +2,14 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import {AuthContext} from '../authprovider/Authprovider'
 import {FcGoogle} from 'react-icons/fc'
+import { GoogleAuthProvider } from 'firebase/auth';
 const Sining = () => {
 
 
 
 
 
- const {createUserEmail}= useContext(AuthContext)
+ const {createUserEmail,continewWithGoogle}= useContext(AuthContext)
 
 
   
@@ -24,6 +25,16 @@ const Sining = () => {
             const user = result.user;
             console.log(user);
           })
+    }
+
+
+    const googleProvider = new GoogleAuthProvider();
+    const GoogleNext = () =>{
+        continewWithGoogle(googleProvider)
+        .then(result=>{
+            const user = result.user
+            console.log(user);
+        })
     }
 
 
@@ -61,7 +72,7 @@ const Sining = () => {
                         <div className="form-control mt-6">
                             <button className="btn btn-primary">Login</button>
                         </div>
-                        <button className="btn mt-6"><FcGoogle/>Google</button>
+                        <button onClick={GoogleNext} className="btn mt-6"><FcGoogle/>Google</button>
                     </form>
                 </div>
             </div>
