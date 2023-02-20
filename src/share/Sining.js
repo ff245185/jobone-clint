@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import {AuthContext} from '../authprovider/Authprovider'
-
+import {FcGoogle} from 'react-icons/fc'
 const Sining = () => {
 
 
@@ -61,6 +61,7 @@ const Sining = () => {
                         <div className="form-control mt-6">
                             <button className="btn btn-primary">Login</button>
                         </div>
+                        <button className="btn mt-6"><FcGoogle/>Google</button>
                     </form>
                 </div>
             </div>
