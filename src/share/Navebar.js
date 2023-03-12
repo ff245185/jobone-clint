@@ -23,7 +23,7 @@ const Navebar = () => {
         </div>
         <div className="flex-none">
           <ul className="menu menu-horizontal px-1">
-            <li><Link>Media</Link></li>
+            <li><Link to='/imgpost'>Media</Link></li>
             <li tabIndex={0}>
               <Link>
                 Messanger
@@ -31,7 +31,7 @@ const Navebar = () => {
               </Link>
               
             </li>
-            <li><Link>Top-post</Link></li>
+            <li><Link to= '/toppost'>Top-post</Link></li>
            
            {  user?.email ?
              <li><Link><button onClick={handleLogout}>Logout</button></Link></li>
@@ -41,7 +41,7 @@ const Navebar = () => {
 
 
 
-            <li><Link>About</Link></li>
+            <li><Link to='/about'>About</Link></li>
             
           </ul>
         </div>
