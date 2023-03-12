@@ -1,4 +1,5 @@
 import React, { createContext, useEffect, useState } from "react";
+
 import app from '../firebase/Firebase.config'
 import {getAuth,
     signInWithPopup,
@@ -30,8 +31,8 @@ const Authprovider = ({children}) => {
   
 
         const userLogOut = () => {
-            localStorage.clear();
-            return signOut(auth);
+          
+           return signOut(auth);
         };
         useEffect(() => {
             const unSubscribes = onAuthStateChanged(auth, currentUser => {

@@ -5,10 +5,14 @@ import { AuthContext } from '../authprovider/Authprovider';
 
 const Navebar = () => {
 
-  const { user, logOut } = useContext(AuthContext);
+  const { user, userLogOut } = useContext(AuthContext);
+       console.log(userLogOut);
  const handleLogout = () =>{
-         logOut()
+  userLogOut()
          .then(()=>{})
+         .catch(error=>{
+
+         })
  }
 
 
@@ -28,34 +32,11 @@ const Navebar = () => {
               
             </li>
             <li><Link>Top-post</Link></li>
-            {/* <li><Link to='/login'>Login</Link></li> */}
+            <li><Link to='/login'>Login</Link></li>
+            <li><Link><button onClick={handleLogout}>Logout</button></Link></li>
+            
 
-            {/* <li><Link to='/logout'>
-              <button
-              onClick={handleLogout}
-              
-              >
-                
-                logout
-                </button>
-              </Link></li> */}
 
-<>
-							{user?.uid ? (
-								<div className="text-white flex items-center gap-3">
-									<span className="hidden md:block">{user?.displayName}</span>
-									<button
-										onClick={handleLogout}
-										className="btn hidden sm:block  ">
-										Logout
-									</button>
-								</div>
-							) : (
-								<div className="text-white">
-									<Link to="/login"> Login </Link>
-								</div>
-							)}
-						</>
 
             <li><Link>About</Link></li>
             
