@@ -32,8 +32,11 @@ const Navebar = () => {
               
             </li>
             <li><Link>Top-post</Link></li>
-            <li><Link to='/login'>Login</Link></li>
-            <li><Link><button onClick={handleLogout}>Logout</button></Link></li>
+           
+           {  user?.email ?
+             <li><Link><button onClick={handleLogout}>Logout</button></Link></li>
+             :  <li><Link to='/login'>Login</Link></li>
+           }
             
 
 
